@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K C Electricals - Service Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling for the contact form */
+        .contact-form {
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            max-width: 600px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>K C Electricals</h1>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="service-center.html">Service Center</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="full-screen-container">
+        <!-- Large Image Section -->
+        <div class="image-section">
+            <img src="D:\KCE\Screenshot 2025-01-13 122206.png" alt="Service Center Banner" class="full-screen-banner-image">
+        </div>
+        <!-- Service Center Details Section -->
+        <div class="section">         
+            <h1>Service Center Details</h1>
+            <h2><strong>Dealer Name:</strong> K C Motocare And Precision Engineering</h2>
+            <p><strong>Dealer Code:</strong> 0013K013</p>
+            <p><strong>Contact Number:</strong> <a href="tel:+919900971989">+91 9900971989</a></p>
+            <p><strong>Address:</strong></p>
+            <p>
+                First Floor, CTS 791, 1A Plot<br>
+                No. 2, Door No. 18, Raj Rajeshwari Nagar,<br>
+                Ranebennur - 581115<br>
+                Haveri - 581115<br>
+                Karnataka, India.
+            </p>
+            <h1>Service Hours:</h1>
+            <p>Monday to Sunday: 9:00 AM - 7:00 PM<br></p>
+            <h1>Services Provided:</h1>
+            <ul>
+                <li>General maintenance and repairs</li>
+                <li>Replacement of spare parts</li>
+                <li>Warranty services</li>
+                <li>Technical support and guidance</li>
+            </ul>
+        </div>
+    </div>
+    <center>
+    <!-- Contact Form Section -->
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <!-- Phone Number field added -->
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit number" required pattern="[0-9]{10}">
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <div id="successMessage">✅ Thank you! Your message has been successfully sent.</div>
+    </div>
+    </center>   
+<footer>
+    <p>&copy; 2025 KC Electricals.<br>All Rights Reserved.</p>
+</footer>
+
+    <!-- JavaScript for Formspree integration with custom success message -->
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); // stop page reload
+
+            const form = event.target;
+            const data = new FormData(form);
+
+            const response = await fetch("https://formspree.io/f/xnnzzvky", {
+                method: "POST",
+                body: data,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok) {
+                document.getElementById("successMessage").style.display = "block";
+                form.reset();
+            } else {
+                alert("Oops! There was a problem submitting your form.");
+            }
+        });
+    </script>
+</body>
+</html>
