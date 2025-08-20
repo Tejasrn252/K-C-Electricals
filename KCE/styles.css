@@ -295,3 +295,19 @@ footer {
         max-width: 800px; /* Optional: Limit width on large screens */
     }
 }
+
+.logo-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+.taro-logo {
+    width: 50px;
+    height: auto;
+}
+.dealer-info {
+    font-weight: bold;
+    margin: 0;
+}
