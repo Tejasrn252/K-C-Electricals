@@ -182,6 +182,28 @@ header h1:hover {
 }
 
 /* =====================
+   GOOGLE MAP
+   ===================== */
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 75%; /* Adjust aspect ratio as needed; 75% for roughly 4:3, or 56.25% for 16:9 */
+    margin: 1rem auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* =====================
    FOOTER
    ===================== */
 footer {
@@ -229,6 +251,9 @@ footer {
         flex: 1 1 100%;
         max-width: 100%;
     }
+    .map-container {
+        padding-top: 100%; /* Taller aspect ratio for mobile to fit content better */
+    }
 }
 
 /* Medium devices - tablets */
@@ -246,6 +271,9 @@ footer {
     .section {
         padding: 1.5rem;
     }
+    .map-container {
+        padding-top: 56.25%; /* Wider aspect for tablets */
+    }
 }
 
 /* Large devices - desktops */
@@ -261,5 +289,9 @@ footer {
         max-height: 80vh;
         min-height: 400px;
         object-fit: cover;
+    }
+    .map-container {
+        padding-top: 56.25%; /* Wider aspect for desktops */
+        max-width: 800px; /* Optional: Limit width on large screens */
     }
 }
